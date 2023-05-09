@@ -1,8 +1,8 @@
 // const Joi = require("joi");
 
-const books = require("../../models/books");
+const books = require("../models/books");
 
-const { HttpError } = require("../../helpers");
+const { HttpError } = require("../helpers");
 const { ctrlWrapper } = require("../helpers");
 
 // const addSchema = Joi.object({
