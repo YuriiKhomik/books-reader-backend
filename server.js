@@ -9,11 +9,12 @@ const { DB_HOST } = process.env;
 // const DB_HOST =
 //   "mongodb+srv://Yurii:pawn0nepenthe@cluster0.q5at4ar.mongodb.net/?retryWrites=true&w=majority";
 
-mongoose.set("strictQuery", true);
+// mongoose.set("strictQuery", true);
 
 mongoose
   .connect(DB_HOST)
   .then(() => {
+    console.log("success connect");
     app.listen(3000);
   })
   .catch((error) => {
