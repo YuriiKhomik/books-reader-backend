@@ -49,8 +49,13 @@ const addSchema = Joi.object({
   date: Joi.string().pattern(dateRegexp).required(),
 });
 
+const updateNameSchema = Joi.object({
+  author: Joi.string().required(),
+});
+
 const schemas = {
   addSchema,
+  updateNameSchema,
 };
 
 const Book = model("book", bookSchema);
