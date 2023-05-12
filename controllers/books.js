@@ -1,18 +1,17 @@
-// const Joi = require("joi");
+const Joi = require("joi");
 
-const Book = require("../models/book");
+const { Book } = require("../models/book");
 
 const { HttpError } = require("../helpers");
 const { ctrlWrapper } = require("../helpers");
 
-// const addSchema = Joi.object({
-//   title: Joi.string().required(),
-//   author: Joi.string().required(),
-// });
+const addSchema = Joi.object({
+  title: Joi.string().required(),
+  author: Joi.string().required(),
+});
 
 const getAll = async (req, res) => {
   const result = await Book.find();
-  console.log(res);
   res.json(result);
 };
 
@@ -25,14 +24,10 @@ const getAll = async (req, res) => {
 //   res.json(result);
 // };
 
-// const add = async (req, res) => {
-//   // const { error } = addSchema.validate(req.body);
-//   // if (error) {
-//   //   throw HttpError(400, error.message);
-//   // }
-//   const result = await books.add(req.body);
-//   res.status(201).json(result);
-// };
+const add = async (req, res) => {
+  const result = await Book.create(req.body);
+  res.status(201).json(result);
+};
 
 // const updateById = async (req, res) => {
 //   // const { error } = addSchema.validate(req.body);
@@ -59,7 +54,7 @@ const getAll = async (req, res) => {
 module.exports = {
   getAll: ctrlWrapper(getAll),
   // getById: ctrlWrapper(getById),
-  // add: ctrlWrapper(add),
+  add: ctrlWrapper(add),
   // updateById: ctrlWrapper(updateById),
   // deleteById: ctrlWrapper(deleteById),
 };

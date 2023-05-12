@@ -14,7 +14,6 @@ const { DB_HOST } = process.env;
 mongoose
   .connect(DB_HOST)
   .then(() => {
-    console.log("success connect");
     app.listen(3000);
   })
   .catch((error) => {
