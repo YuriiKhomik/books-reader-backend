@@ -42,7 +42,7 @@ bookSchema.post("save", handleMongooseError);
 const addSchema = Joi.object({
   title: Joi.string().required(),
   author: Joi.string().required(),
-  favorite: Joi.boolean,
+  favorite: Joi.boolean(),
   genre: Joi.string()
     .valid(...genreList)
     .required(),
